@@ -23,24 +23,23 @@ app
   })
   //Handle not found
   .use((req, res) => {
-  res.status(404).send(`
-    <h1>Not Found</h1>
-    <p>The requested page does not exist.</p>
-    <button onclick="redirect()">Go to Docs</button>
-    <script>
-      function redirect() {
-        window.location.href = '/api/docs';
-      }
-    </script>
-  `);
-});
+    res.status(404).send(`
+      <h1>Not Found</h1>
+      <p>The requested page does not exist.</p>
+      <button onclick="redirect()">Go to Docs</button>
+      <script>
+        function redirect() {
+          window.location.href = '/api-docs'
+        }
+      </script>
+    `);
+  });
 
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}. Go to http://localhost:8080/api-docs/`);
+      console.log(`Server is running on port ${PORT}. Visit on http://localhost:8080/api-docs/`);
     });
   })
-
 
 module.exports = app;
