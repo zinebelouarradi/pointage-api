@@ -24,6 +24,6 @@ const employeeSchema = new mongoose.Schema({
   comment: {type: String}
 });
 
-const Employee = mongoose.model("Employee", employeeSchema);
+const EmployeeModel = mongoose.model("Employee", employeeSchema);
 
-module.exports = Employee;
+module.exports = EmployeeModel;

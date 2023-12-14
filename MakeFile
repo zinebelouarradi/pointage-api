@@ -1,0 +1,21 @@
+# Makefile
+
+IMAGE_NAME := mydockerimage
+DOCKERFILE_PATH := ./Dockerfile
+
+.PHONY: build test rebuild dev watch
+
+build: ;@echo "Building ${PROJECT}"; \
+	docker buildx build -t $(IMAGE_NAME) -f $(DOCKERFILE_PATH) .
+
+test: ;@echo "Testing ${PROJECT}....."; \
+	npm test
+
+dev:
+	npm start
+
+install: ;@echo "Installing ${PROJECT}....."; \
+	npm install
+
+clean :
+	rm -rf node_modules

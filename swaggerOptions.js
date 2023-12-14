@@ -1,5 +1,4 @@
-// Define Swagger JSDoc options
-const swaggerOptions = {
+const options = {
   definition: {
     openapi: '3.0.0',
     info: {
@@ -8,5 +7,7 @@ const swaggerOptions = {
       description: 'API pour la gestion des employés de l\'école ABC',
     },
   },
-  apis: ['./public/*.js'],
+  apis: ['./docs/*.js'],
 };
+
+module.exports = options;

@@ -8,7 +8,7 @@ const {
 
 const router = Router()
 
-require('../public/employeeSwaggerDefintions');
+require('../../docs/employeeSwaggerDefintions');
 
 router.get("/", validateCreationDate, employeeController.getAllEmployees)
   .post("/", validateCreateEmployee, employeeController.createEmployee)

@@ -1,11 +1,12 @@
-const {findById, createEmployee, findByQuery, updateEmployeeById} = require("../models/employee/operations");
 const {getDateFilterQuery} = require("../models/dbQueries");
 const {differenceInHours, parse} = require("date-fns");
+const {createEmployeeInDb, findByQuery, findById, updateEmployeeById} = require("../services/EmployeeService");
 
 // Créer un nouvel employé
 exports.createEmployee = async (req, res) => {
   try {
     const existingEmployee = await findById(req.body.id);
+    console.log({existingEmployee}, 'dklnslkdnsakldnaklnkldankladnkln')
     if (existingEmployee) {
       return res.status(409).json({error: "Un employé avec le même ID existe déjà"});
     }
@@ -22,7 +23,6 @@ exports.getAllEmployees = async (req, res) => {
     const parsedDate = parse(req.query.creationDate, 'yyyy-MM-dd', new Date());
 
     const query = req.query.creationDate ? getDateFilterQuery(parsedDate) : {};
-    console.log(query);
 
     const employees = await findByQuery(query);
     res.json({results: employees, count: employees.length});
