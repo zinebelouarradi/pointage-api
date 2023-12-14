@@ -16,7 +16,6 @@ const { getDateFilterQuery } = require("../utils/queries");
 exports.createEmployee = async (req, res) => {
   try {
     const existingEmployee = await findById(req.body.id);
-    console.log({ existingEmployee }, "dklnslkdnsakldnaklnkldankladnkln");
     if (existingEmployee) {
       return handleConflictError(res, "Un employé avec le même ID existe déjà");
     }
