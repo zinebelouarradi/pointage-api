@@ -9,7 +9,14 @@ const validateCreateEmployee = [
   body('firstName').isString().notEmpty().withMessage('le champs firstName est requis'),
   body('department').isString().notEmpty().withMessage('le champs department est requis'),
   body('id').isString().notEmpty().withMessage("le champs Id est requis"),
-  body('creationDate').optional().toDate(),
+  body('creationDate').optional().custom((value) => {
+    const parsedDate = parse(value, allowedDateFormat, new Date(), {locale: fr});
+
+    if (!isValid(parsedDate)) {
+      throw new Error(`Date invalide. format autorisé ${allowedDateFormat}.`);
+    }
+    return true;
+  }),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

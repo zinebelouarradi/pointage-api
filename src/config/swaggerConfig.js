@@ -7,7 +7,7 @@ const options = {
       description: 'API pour la gestion des employés de l\'école ABC',
     },
   },
-  apis: ['./docs/*.js'],
+  apis: ['./src/docs/*.js'],
 };
 
 module.exports = options;

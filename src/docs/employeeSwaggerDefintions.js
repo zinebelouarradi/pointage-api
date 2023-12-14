@@ -202,14 +202,14 @@
  *           schema:
  *             type: object
  *             properties:
- *               id:
+ *               employeeId:
  *                 type: string
  *                 description: L'ID de l'employé pour effectuer l'enregistrement de départ. (Requis)
  *               comment:
  *                 type: string
  *                 description: Commentaire facultatif pour l'enregistrement de départ. (Optionnel)
  *             required:
- *               - id
+ *               - employeeId
  *     responses:
  *       200:
  *         description: Enregistrement du départ réussi
